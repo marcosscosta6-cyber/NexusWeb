@@ -1,22 +1,42 @@
-function abrirChat(nome) {
+//abre e fecha a barra de busca de usuários para iniciar um novo chat
+const btnNovoChat = document.getElementById("btn-novo-chat");
+const buscarUsuarios = document.getElementById("buscarUsuarios");
 
-    document.getElementById("chatVazio").style.display = "none";
+btnNovoChat.addEventListener("click", () => {
+    buscarUsuarios.classList.toggle("ativo");
+});
 
-    document.getElementById("chatContent").style.display = "flex";
+//adiciona o chat novo na lista de conversas ao clicar no usuário
+const usuarios = document.querySelectorAll(".usuario-item");
+const listaConversas = document.getElementById("listaChats");
 
-    document.getElementById("nomeUsuario").innerText = nome;
-}
+usuarios.forEach(usuario => {
 
-function abrirChat(nome) {
+    usuario.addEventListener("click", () => {
 
-    document.getElementById("chatVazio").style.display = "none";
-    document.getElementById("chatContent").style.display = "flex";
+        const nome = usuario.textContent;
 
-    document.getElementById("nomeUsuario").innerText = nome;
-}
+        const existe = [...document.querySelectorAll(".contato h4")]
+            .some(h4 => h4.textContent === nome);
 
-function voltarMensagens() {
+        if(existe) return;
 
-    document.getElementById("chatContent").style.display = "none";
-    document.getElementById("chatVazio").style.display = "flex";
-}
+        const novaConversa = document.createElement("div");
+
+        novaConversa.classList.add("contato");
+
+        novaConversa.innerHTML = `
+            <img src="../Img/download 3.svg">
+            <div>
+                <h4>${nome}</h4>
+                <p>Nova conversa</p>
+            </div>
+        `;
+
+        listaConversas.prepend(novaConversa);
+
+        buscarUsuarios.classList.remove("ativo");
+
+
+    });
+});

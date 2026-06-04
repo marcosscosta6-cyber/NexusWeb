@@ -11,107 +11,181 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Belanosima:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
-<body>
 
-    <main class="mensagens">
+<body> 
+    <div class="layout">
 
-        <aside class="sidebar-chat">
-
-            <div class="titulo-chat">
-                <h2>Mensagens</h2>
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+            <div class="logo">
+                <img src="../Img/NexusS.png" alt="" width="45" height="45">
+                <h2>Nexus</h2>
             </div>
 
-            <div class="contato" onclick="abrirChat('Lucas Costa')">
-                <img src="https://i.pravatar.cc/100?img=1">
-                <span>Lucas Costa</span>
+            <br><br>
+
+            <div class="perfil-sidebar">
+                <img src="../Img/download 3.svg">
+                <div class="text-white">
+                    <h5>Mariana Costa</h5>
+                    <p>Engenheira mecânica</p>
+                </div>
             </div>
 
-            <div class="contato" onclick="abrirChat('Marina Alves')">
-                <img src="https://i.pravatar.cc/100?img=5">
-                <span>Marina Alves</span>
-            </div>
+            <nav class="menu">
+                <a href="../home/home.html">
+                    <i class="fa-solid fa-house"></i>
+                    <span>Início</span>
+                </a>
 
-            <div class="contato" onclick="abrirChat('Pedro Souza')">
-                <img src="https://i.pravatar.cc/100?img=8">
-                <span>Pedro Souza</span>
-            </div>
+                <a href="../explorar/explorar.html">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <span>Explorar</span>
+                </a>
 
+                <a href="../conexões/conec.html">
+                    <i class="fa-solid fa-users"></i>
+                    <span>Conexões</span>
+                </a>
+
+                <a href="../mensagens/mensagens.html" class="active">
+                    <i class="fa-solid fa-message"></i>
+                    <span>Mensagens</span>
+                </a>
+
+                <a href="../projetos/projetos.html">
+                    <i class="fa-solid fa-folder"></i>
+                    <span>Projetos</span>
+                </a>
+
+                <a href="../notificações/not.html">
+                    <i class="fa-solid fa-bell"></i>
+                    <span>Notificações</span>
+                </a>
+
+                <a href="../perfil/perfil.html">
+                    <i class="fa-solid fa-user"></i>
+                    <span>Perfil</span>
+                </a>
+            </nav>
+
+            <div class="bottom-menu">
+                <a href="../config/config.html">
+                    <i class="fa-solid fa-gear"></i>
+                    <span>Configurações</span>
+                </a>
+
+                <a href="#">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <span>Sair</span>
+                </a>
+            </div>
         </aside>
 
-        <!-- Tela Inicial -->
+        <!-- CONTEÚDO -->
+        <div class="content">
 
-        <section class="chat-vazio" id="chatVazio">
+            <!-- MENSAGENS -->
+            <main class="mensagens-container">
 
-            <div class="conteudo-vazio">
+                <!-- LISTA DE CONVERSAS -->
+                <section class="lista-conversas" id="listaConversas">
 
-                <i class="fa-solid fa-comments"></i>
+                    <div class="titulo-conversas">
+                        <h2>Mensagens</h2>
 
-                <h1>Suas Mensagens</h1>
+                        <button id="btn-novo-chat">
+                            <i class="fa-solid fa-plus"></i>    
+                        </button>
+                    </div>
 
-                <p>
-                    Selecione uma conversa para começar.
-                </p>
+                    <div class="buscar-usuarios" id="buscarUsuarios">
 
-            </div>
+                        <input type="text" placeholder="Pesquisar usuário..." id="pesquisaUsuario">
 
-        </section>
+                        <div class="usuario-item">João Silva</div>
+                        <div class="usuario-item">Ana Costa</div>
+                        <div class="usuario-item">Carlos Lima</div>
+                        <div class="usuario-item">Mariana Costa</div>
+                    </div>
 
-        <!-- Chat -->
+                    <div id="listaChats">
 
-        <section class="chat-content" id="chatContent">
+                        <div class="contato ativo">
+                            <img src="../Img/download 3.svg">
+                            <div>
+                                <h4>João Silva</h4>
+                                <p>Olá, tudo bem?</p>
+                            </div>
+                        </div>
 
-            <header class="chat-header">
+                        <div class="contato">
+                            <img src="../Img/download 3.svg">
+                            <div>
+                                <h4>Ana Souza</h4>
+                                <p>Projeto enviado!</p>
+                            </div>
+                        </div>
 
-                <div class="chat-user">
+                        <div class="contato">
+                            <img src="../Img/download 3.svg">
+                            <div>
+                                <h4>Carlos Lima</h4>
+                                <p>Vamos conversar?</p>
+                            </div>
+                        </div>
 
-                     <button class="btn-voltar" onclick="voltarMensagens()">
-                        <i class="fa-solid fa-arrow-left"></i>
-                     </button>
+                    </div>
+                </section>
 
-                    <img src="https://i.pravatar.cc/100?img=1">
+                <!-- CHAT -->
+                <section class="chat-area">
 
-                    <h3 id="nomeUsuario">
-                        Lucas Costa
-                    </h3>
+                    <div class="chat-header">
+                        <img src="../Img/download 3.svg">
+                        <div>
+                            <h3>João Silva</h3>
+                            <span>Online</span>
+                        </div>
+                    </div>
 
-                </div>
+                    <div class="chat-mensagens">
 
-            </header>
+                        <div class="mensagem recebida">
+                            Olá Arthur!
+                        </div>
 
-            <div class="messages">
+                        <div class="mensagem enviada">
+                            Oi João, tudo certo?
+                        </div>
 
-                <div class="message received">
-                    Oi! Tudo bem?
-                </div>
+                        <div class="mensagem recebida">
+                            Tudo sim! Como está o projeto?
+                        </div>
 
-                <div class="message sent">
-                    Tudo sim! E você?
-                </div>
+                    </div>
 
-                <div class="message received">
-                    Estou ótimo.
-                </div>
+                    <div class="chat-input">
 
-            </div>
+                        <input
+                            type="text"
+                            placeholder="Digite sua mensagem..."
+                        >
 
-            <div class="chat-input">
+                        <button>
+                            <i class="fa-solid fa-paper-plane"></i>
+                        </button>
 
-                <input
-                    type="text"
-                    placeholder="Digite uma mensagem...">
+                    </div>
 
-                <button>
-                    <i class="fa-solid fa-paper-plane"></i>
-                </button>
+                </section>
 
-            </div>
+            </main>
 
-        </section>
+        </div>
 
-    </main>
+    </div>
 
     <script src="mensagens.js"></script>
-
-
 </body>
 </html>
